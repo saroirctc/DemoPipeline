@@ -19,3 +19,16 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: SonarQubePrepare@4
+  inputs:
+      SonarQube: 'Analyze "Prueba" 2'
+      scannerMode: 'MSBuild'
+      projectKey: 'Y5173wAv18wKsigzJ3AU'
+      projectName: 'Prueba'
+
+- task: SonarQubeAnalyze@4
+
+- task: SonarQubePublish@4
+  inputs:
+    pollingTimeoutSec: '300'
